@@ -1,31 +1,26 @@
 public class Main {
-    public static void main(String[] args) {
-	import java.util.Scanner;
+        public static void main(String[] args) {
+	    import java.util.Scanner;
 
-        public class Fibonacci {
-            public static void main(String[] args) {
-                Scanner input = new Scanner(System.in);
+            public class InverterString {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Digite uma string: ");
+                    String texto = scanner.nextLine();
+                    scanner.close();
 
-                System.out.print("Digite um número inteiro: ");
-                int numero = input.nextInt();
-
-                int numeroAnterior = 0;
-                int numeroAtual = 1;
-                int proximoNumero = 0;
-
-                while (proximoNumero < numero) {
-                    proximoNumero = numeroAnterior + numeroAtual;
-                    numeroAnterior = numeroAtual;
-                    numeroAtual = proximoNumero;
-                }
-
-                if (proximoNumero == numero) {
-                    System.out.println(numero + " pertence à sequência de Fibonacci.");
-                } else {
-                    System.out.println(numero + " não pertence à sequência de Fibonacci.");
+                    char[] caracteres = texto.toCharArray();
+                    int tamanho = caracteres.length;
+                    for (int i = 0; i < tamanho / 2; i++) {
+                        char temp = caracteres[i];
+                        caracteres[i] = caracteres[tamanho - 1 - i];
+                        caracteres[tamanho - 1 - i] = temp;
+                    }
+                    String resultado = new String(caracteres);
+                    System.out.println("String invertida: " + resultado);
                 }
             }
-        }
 
-    }
+
+        }
 }
